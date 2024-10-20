@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Distribución Continua Uniforme</title>
+  <link rel="stylesheet" href="styleUniforme.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="scriptUniforme.js" defer></script> <!-- Enlace al archivo JavaScript -->
+</head>
+<body>
+
+  <!-- Logo UMG -->
+  <div class="logo">
+    <h2>UMG</h2>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>Calculadora de Distribución Continua Uniforme</h1>
+    </header>
+
+    <!-- Formulario -->
+    <form id="uniformeForm" class="formulario">
+      <div class="form-group">
+        <label for="limiteInferior">Límite Inferior (a):</label>
+        <input type="number" id="limiteInferior" name="limiteInferior" required step="0.01">
+      </div>
+
+      <div class="form-group">
+        <label for="limiteSuperior">Límite Superior (b):</label>
+        <input type="number" id="limiteSuperior" name="limiteSuperior" required step="0.01">
+      </div>
+
+      <div class="form-group" id="campoValorX">
+        <label for="valorX">Valor (X):</label>
+        <input type="number" id="valorX" name="valorX" required>
+      </div>
+
+      <div class="form-group">
+        <label for="tipoProbabilidad">Tipo de Probabilidad:</label>
+        <select id="tipoProbabilidad" name="tipoProbabilidad" onchange="mostrarCamposAdicionales()">
+          <option value="menor_igual">Sea menor o igual a un valor P(X ≤ x)</option>
+          <option value="mayor_igual">Sea mayor o igual a un valor P(X ≥ x)</option>
+          <option value="entre">Esté entre dos valores P(a ≤ X ≤ b)</option>
+        </select>
+      </div>
+
+      <div id="camposAdicionales" style="display: none;">
+        <div class="form-group">
+          <label for="valorA">Valor (a):</label>
+          <input type="number" id="valorA" name="valorA">
+        </div>
+        <div class="form-group">
+          <label for="valorB">Valor (b):</label>
+          <input type="number" id="valorB" name="valorB">
+        </div>
+      </div>
+
+      <button type="button" class="btn-calcular" onclick="calcularUniforme()">Calcular</button>
+      <button type="button" class="btn-reiniciar" onclick="reiniciarFormulario()">Reiniciar</button>
+    </form>
+
+    <div id="resultado" class="resultado"></div>
+
+    <!-- Contenedor del gráfico -->
+    <canvas id="graficoUniforme"></canvas>
+
+    <!-- Botón para volver -->
+    <button type="button" class="btn-volver" onclick="volver()">Volver</button>
+  </div>
+
+  <!-- Figuras geométricas de fondo -->
+  <div class="hexagon1"></div>
+  <div class="hexagon2"></div>
+  <div class="circle1"></div>
+
+</body>
+</html>

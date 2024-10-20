@@ -1,0 +1,102 @@
+/* Fondo SVG animado */
+.svg-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Detrás del contenido */
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.circle {
+  fill: rgba(255, 255, 255, 0.1);
+  animation: move 10s infinite alternate;
+}
+
+.circle:nth-child(1) {
+  animation-duration: 12s;
+}
+
+.circle:nth-child(2) {
+  animation-duration: 15s;
+}
+
+.circle:nth-child(3) {
+  animation-duration: 8s;
+}
+
+@keyframes move {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(20px, 20px);
+  }
+}
+
+
+
+/* Estilos generales */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+  padding: 20px; /* Añadir un poco de padding */
+  text-align: center; /* Centrar el texto */
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 20px 0;
+  font-size: 2.5rem; /* Tamaño de fuente responsivo */
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre los botones */
+  margin-top: 20px; /* Espacio superior */
+}
+
+.menu-option {
+  padding: 15px;
+  font-size: 1.2rem; /* Tamaño de fuente responsivo */
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%; /* Botones ocupan todo el ancho */
+  max-width: 300px; /* Ancho máximo de los botones */
+}
+
+.menu-option:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
